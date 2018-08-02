@@ -28,6 +28,91 @@
 
     <li><a href="https://blog.csdn.net/z82367825/article/details/78820559">Android-实现电话自动接听/电话自动挂断功能（2018.7.29）</a></li>
     <li><a href="https://www.jianshu.com/p/172dd8ddc998">Unity3D之AR女友简易快速制作方法（2018.7.29）</a></li>
+    <li><a href="http://baijiahao.baidu.com/s?id=1586376937926938389&wfr=spider&for=pc">Android:ART虚拟机和Dalvik虚拟机区别（2018.8.1）</a>
+        <P> Android
+            从5.0开始默认使用ART虚拟机执行程序,抛弃了Dalvik虚拟机.加快了Android的运行效率,提高系统的流畅性
+            原因是Dalvik虚拟机执行的是dex字节码，ART虚拟机执行的是本地机器码, Dalvik虚拟机有一个解释器，用来执行dex字节码,
+            Android从2.2开始,通过JIT（Just-In-Time）进行Dalvik虚拟机的优化,将使用频率较高的字节码翻译成机器码，
+            就可以有效地提高Dalvik虚拟机的执行效率。但即使用采用了JIT，Dalvik虚拟机还是比不上ART虚拟机,因为Dalvik翻译工作是在程序运行时的,
+            而ART在APK在安装时就对其包含的Dex字节码进行翻译，得到对应的本地机器指令，于是就可以在运行时直接执行了。
+            安装:
+
+            Android系统通过PackageManagerService来安装APK，在安装的过程，PackageManagerService会通过另外一个类Installer的成员函数dexopt来对APK里面的dex字节码进行优化,对Dalvik虚拟机来说只进行dex字节码的优化,而ART虚拟机将dex字节码翻译成本地机器码,注意的是两种虚拟机不管事字节码的优化还是翻译成机器码都会生成一个后缀是odex文件,只不过ART的是一个oat类型文件,什么是oat文件(不清楚,好像是Linux的文件)
+
+            启动:
+
+            Android系统在启动的时候，会创建一个Zygote(受精卵,)进程,一切进程产生的一个进程。Zygote进程在启动的过程中会创建一个Dalvik虚拟机(或是ART虚拟机)。Zygote进程是通过复制自己来创建新的应用程序进程的,他会连同虚拟机一并复制可以大大提高系统的启动速度,就像单例一样,不用再为每个进程new一个，而且每个应用进程所需要的虚拟机也都是直接拿来就可以了.
+        </P>
+    </li>
+    <li><a href="https://www.jianshu.com/p/b29a21a162ad">Dalvik虚拟机原理及Xposed hook原理（2018.8.1）</a></li>
+    <li>
+        <a href="https://www.cnblogs.com/graphics/p/5140385.html">onSingleTapUp()和onSingleTapConfirmed()的区别（2018.8.1）</a>
+
+        <P>
+            onSingleTapUp()和onSingleTapConfirmed()的区别
+            onSingleTapUp() - 在按下并抬起时发生，只要符合这个条件就触发该函数，没有任何附加条件。
+
+            onSingleTapConfirmed() 同上者，但有附加条件，就是Android会确保单击之后短时间内没有再次单击，才会触发该函数。
+
+            举个列子，如果监听双击事件：onSingleTapUp()会被触发两次。但是onSingleTapConfirmed()一次都不会被触发。
+
+            所以，如果你既想监听单击事件，又想监听双击时间，那么请使用onSingleTapConfirmed()函数。
+
+        </P>
+
+    </li>
+
+    <li><a href="https://blog.csdn.net/rnzuozuo/article/details/77930543">作为一个安卓开发，如何去开发AR?需要具体学什么？（2018.8.2）</a>
+
+        <P>如果已经有安卓开发的基础，只是开发一些应用层软件的话，只需要在安卓的原生开发框架上面整
+
+            合第三方的AR SDK进来，并执行相应的三维动画效果。底层的算法，如：图像识别，多目标识
+
+            别，动态识别，坐标定位等，SDK本身都已经提供了相应的算法支持，如果涉及到底层的软件研
+
+
+            发，则需要了解很多算法的知识；如果只是应用层的开发，主要牵涉到两个领域的知识点：
+
+
+            AR SDK的使用和整合；
+
+
+            三维动画的制作；
+
+
+            目前国外的AR SDK有高通的Vuforia和Metaio，不过Metaio已被苹果收购，不再提供软件服务支
+
+
+            持，这两个平台发展时间较长，功能相对比较完善，但缺乏本地化的支持。国内目前了解到的有视
+
+
+            辰的EasyAR和亮风台HiAR。
+
+
+            Vuforia官网：https://developer.vuforia.com；
+
+
+            EasyAR官网：http://www.easyar.cn;
+
+
+            HiAR官网： https://www.hiscene.com；
+
+
+            三维动画软件目前支持Unity3D,Maya,3DMAX等，归属于设计领域，一般并不是程序员去做。目前
+
+
+            大多数AR SDK都支持Unity，建议使用Unity。
+
+
+            Unity3D官网：Unity - Game Engine
+
+
+            如果需要实现一些基础的算法绘图，可能需要用到opencv。
+
+
+        </P>
+    </li>
+
 
 </ul>
 
