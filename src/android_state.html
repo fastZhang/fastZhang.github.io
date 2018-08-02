@@ -112,6 +112,33 @@
 
         </P>
     </li>
+    <li>
+        <a href="https://www.cnblogs.com/graphics/p/5140385.html">onSingleTapUp()和onSingleTapConfirmed()的区别（2018.8.1）</a>
+
+        <P>
+            onSingleTapUp()和onSingleTapConfirmed()的区别
+            onSingleTapUp() - 在按下并抬起时发生，只要符合这个条件就触发该函数，没有任何附加条件。
+
+            onSingleTapConfirmed() 同上者，但有附加条件，就是Android会确保单击之后短时间内没有再次单击，才会触发该函数。
+
+            举个列子，如果监听双击事件：onSingleTapUp()会被触发两次。但是onSingleTapConfirmed()一次都不会被触发。
+
+            所以，如果你既想监听单击事件，又想监听双击时间，那么请使用onSingleTapConfirmed()函数。
+
+        </P>
+
+    </li>
+
+    <li><a>windowIsTranslucent（2018.8.2）</a>
+
+        <P>
+
+            <!--窗口半透明 慎用-->
+            <!--<item name="android:windowIsTranslucent">true</item>-->
+
+
+        </P>
+    </li>
 
 
 </ul>
