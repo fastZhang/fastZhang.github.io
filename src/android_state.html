@@ -175,6 +175,28 @@
 
         </P>
     </li>
+    <li><a href="https://blog.csdn.net/saberhao/article/details/53909841">AndroidN适配的异常：java.lang.SecurityException: Not
+        allowed to change Do
+        Not Disturb state 异常（2018.8.9）</a>
+
+        <P>
+
+        </P>
+    </li>
+
+    <li><a>android沉浸式界面体验（2018.8.9）</a>
+
+        <P>
+            onCreate:
+            ==========
+            Window window = getWindow();
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|
+            View.SYSTEM_UI_FLAG_FULLSCREEN;
+            window.setAttributes(params);
+
+        </P>
+    </li>
 
 
 </ul>
